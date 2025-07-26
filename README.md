@@ -1,4 +1,4 @@
-# miniprojects-HTML,CSS & Python
+# Miniprojects-HTML,CSS & Python
 
 Mini Projects
 1.Chatbot:
