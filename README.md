@@ -15,8 +15,7 @@ A python mini project that visualizes stock data using graphs.Built using matplo
 
 
 
-Author
-
+Author:
 Yogesh HC
 
 linkedin:www.linkedin.com/in/yogeshhc 
