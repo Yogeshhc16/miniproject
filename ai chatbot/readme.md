@@ -11,8 +11,6 @@ Tells current date and time
 
 Tells random jokes
 
-Gives basic weather-like replies
-
 Uses lemmatization and tokenization with NLTK
 
 Runs entirely in the command line (terminal)
