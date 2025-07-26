@@ -14,8 +14,11 @@ A static clone of Amazon homepage built using only HTML and CSS.It replicates th
 A python mini project that visualizes stock data using graphs.Built using matplotlib,it shows a basic price trends in a graphical format.
 
 
+
 Author
+
 Yogesh HC
+
 linkedin:www.linkedin.com/in/yogeshhc 
 
 
