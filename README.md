@@ -1,7 +1,7 @@
 # miniprojects-HTML,CSS & Python
 
 Mini Projects
-1.AI Chatbot:
+1.Chatbot:
 
 A basic python-based chatbot that responds to user input and displays the current date,time and weather.
 
@@ -18,6 +18,8 @@ HTML code:https://github.com/Yogeshhc16/miniproject/blob/main/amazon%20home%20pa
 CSS code:https://github.com/Yogeshhc16/miniproject/blob/main/amazon%20home%20page(clone)/advance.css
 
 3.Stock tracker
+
+view code:https://github.com/Yogeshhc16/miniproject/blob/main/stock%20tracker/stock%20%20tracker.py
 
 A python mini project that visualizes stock data using graphs.Built using matplotlib,it shows a basic price trends in a graphical format.
 
