@@ -15,7 +15,7 @@ View code:
 
 HTML code:https://github.com/Yogeshhc16/miniproject/blob/main/amazon%20home%20page(clone)/project1.html
 
-CSS code
+CSS code:https://github.com/Yogeshhc16/miniproject/blob/main/amazon%20home%20page(clone)/advance.css
 
 3.Stock tracker
 
