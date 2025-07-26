@@ -81,3 +81,4 @@ No internet connection is needed — weather replies are static.
 This is a rule-based chatbot, not an AI/ML model.
 
 Made for learning 
+
