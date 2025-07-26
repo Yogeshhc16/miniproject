@@ -1,6 +1,5 @@
 # Miniprojects-HTML,CSS & Python
 
-Mini Projects
 1.Chatbot:
 
 A basic python-based chatbot that responds to user input and displays the current date,time and weather.
