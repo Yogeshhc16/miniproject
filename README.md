@@ -5,6 +5,8 @@ Mini Projects
 
 A basic python-based chatbot that responds to user input and displays the current date,time and weather.
 
+view code:https://github.com/Yogeshhc16/miniproject/blob/main/ai%20chatbot/AI%20chatbot.py
+
 2.Amazon home page clone:
 
 A static clone of Amazon homepage built using only HTML and CSS.It replicates the layout,navbar,sections and basic visual structures
