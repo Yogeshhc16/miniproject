@@ -3,30 +3,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import csv
 
-# Hardcoded stock prices for simple investment calc
-stock_prices = {
-    "AAPL": 150,
-    "TSLA": 700,
-    "GOOGL": 2800,
-    "AMZN": 3400,
-    "MSFT": 290,
-    "JPM":600,
-    "META":2000,
-}
-
 def get_user_input():
     stock_name = input("Enter stock symbol (e.g., AAPL, TSLA, GOOGL): ").upper()
     quantity = int(input("Enter the number of shares: "))
     return stock_name, quantity
-
-def calculate_investment(stock_name, quantity):
-    if stock_name in stock_prices:
-        price_per_share = stock_prices[stock_name]
-        total_investment = price_per_share * quantity
-        return total_investment
-    else:
-        print(f"Warning: {stock_name} price not found in hardcoded list. Investment value can't be calculated.")
-        return None
 
 def fetch_live_data(stock_name, period="6mo", interval="1d"):
     print(f"Fetching live data for {stock_name}...")
@@ -36,6 +16,11 @@ def fetch_live_data(stock_name, period="6mo", interval="1d"):
         print("Error: No data fetched. Check the stock symbol and your internet connection.")
         return None
     return df
+
+def calculate_investment_from_live(df, quantity):
+    latest_close = df['Close'][-1]
+    total_investment = latest_close * quantity
+    return latest_close, total_investment
 
 def plot_stock_data(df, stock_name):
     plt.figure(figsize=(12,6))
@@ -72,12 +57,12 @@ def display_indicators(df):
         "Daily Change (%)": daily_change_pct,
     }
 
-def save_to_txt(stock_name, quantity, investment, indicators, filename="stock_investment.txt"):
+def save_to_txt(stock_name, quantity, latest_close, investment, indicators, filename="stock_investment.txt"):
     with open(filename, 'w') as file:
         file.write(f"Stock Symbol: {stock_name}\n")
         file.write(f"Number of Shares: {quantity}\n")
-        if investment is not None:
-            file.write(f"Total Investment: ${investment:.2f}\n")
+        file.write(f"Latest Close Price: ${latest_close:.2f}\n")
+        file.write(f"Total Investment (Live Price): ${investment:.2f}\n")
         file.write("\nFinancial Indicators:\n")
         for key, val in indicators.items():
             if isinstance(val, float):
@@ -86,12 +71,11 @@ def save_to_txt(stock_name, quantity, investment, indicators, filename="stock_in
                 file.write(f"{key}: {val}\n")
     print(f"Results saved to {filename}")
 
-def save_to_csv(stock_name, quantity, investment, indicators, filename="stock_investment.csv"):
+def save_to_csv(stock_name, quantity, latest_close, investment, indicators, filename="stock_investment.csv"):
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(["Stock Symbol", "Number of Shares", "Total Investment"])
-        investment_val = f"{investment:.2f}" if investment is not None else "N/A"
-        writer.writerow([stock_name, quantity, investment_val])
+        writer.writerow(["Stock Symbol", "Number of Shares", "Latest Close Price", "Total Investment (Live Price)"])
+        writer.writerow([stock_name, quantity, f"{latest_close:.2f}", f"{investment:.2f}"])
         writer.writerow([])
         writer.writerow(["Indicator", "Value"])
         for key, val in indicators.items():
@@ -104,12 +88,12 @@ def save_to_csv(stock_name, quantity, investment, indicators, filename="stock_in
 def main():
     stock_name, quantity = get_user_input()
 
-    investment = calculate_investment(stock_name, quantity)
-    if investment is not None:
-        print(f"\nTotal investment based on hardcoded price: ${investment:.2f}")
-
     df = fetch_live_data(stock_name)
     if df is not None:
+        latest_close, investment = calculate_investment_from_live(df, quantity)
+        print(f"\nLatest Close Price: ${latest_close:.2f}")
+        print(f"Total Investment (Live Price): ${investment:.2f}")
+
         indicators = display_indicators(df)
         plot_stock_data(df, stock_name)
 
@@ -117,9 +101,9 @@ def main():
         if save_option == 'yes':
             file_format = input("Which file format? (txt/csv): ").lower()
             if file_format == 'txt':
-                save_to_txt(stock_name, quantity, investment, indicators)
+                save_to_txt(stock_name, quantity, latest_close, investment, indicators)
             elif file_format == 'csv':
-                save_to_csv(stock_name, quantity, investment, indicators)
+                save_to_csv(stock_name, quantity, latest_close, investment, indicators)
             else:
                 print("Invalid format. Results not saved.")
         else:
