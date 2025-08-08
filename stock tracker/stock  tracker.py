@@ -10,8 +10,6 @@ stock_prices = {
     "GOOGL": 2800,
     "AMZN": 3400,
     "MSFT": 290,
-    "TATA":300,
-    "FLIP":1200
 }
 
 def get_user_input():
