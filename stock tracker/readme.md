@@ -1,18 +1,29 @@
 Stock Tracker — Python Mini Project
 
-This Python project allows users to track stock performance, calculate their investment value, and visualize price trends with moving averages. It uses hardcoded stock prices for quick investment checks and also fetches live stock data using the yfinance library.
+A Python-based tool to track stock performance, calculate investment value, and visualize price trends with moving averages (SMA).  
+It supports both offline mode (with hardcoded stock prices) and online mode (fetching live data via the `yfinance` library).
 
 Features
 
-Calculate investment based on user-entered stock and quantity
+Calculate investment value** based on stock symbol and quantity entered by the user.
 
-Plot closing price with 20-day and 50-day Simple Moving Averages (SMA)
+Plot closing price trends with 20-day and 50-day Simple Moving Averages (SMA).
 
-View latest financial indicators: Close price, SMAs, volume, daily change
+View latest financial indicators:
 
-Save the report to .txt or .csv format
+Latest Close Price
 
-Works both offline (with hardcoded prices) and online (via live data)
+20-day SMA
+
+50-day SMA
+
+Volume
+
+Daily Percentage Change
+
+Save reports in `.txt` or `.csv` format.
+
+Works offline with hardcoded prices or online with live market data.
 
 
 Technologies Used
@@ -49,10 +60,5 @@ Choose to save results (optional)
 
 
 
-Note:
 
-Only a few stock prices are hardcoded (AAPL, TSLA, GOOGL, AMZN, MSFT,)
 
-For other stocks, live data will be fetched via yfinance
-
-Internet connection is required for live data fetching and plotting
