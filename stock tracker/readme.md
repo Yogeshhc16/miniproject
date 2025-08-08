@@ -42,21 +42,22 @@ How to Run
 
 1. Make sure you have the required libraries installed:
 
-pip install yfinance matplotlib pandas
+   pip install yfinance matplotlib pandas
 
 
 2. Run the script:
 
-python stock_tracker.py
+   python stock_tracker.py
 
 
 3. Enter:
 
-Stock symbol (e.g., AAPL, TSLA)
+   Stock symbol (e.g., AAPL, TSLA)
 
-Number of shares
+   Number of shares
 
-Choose to save results (optional)
+   Choose to save results (optional)
+
 
 
 
