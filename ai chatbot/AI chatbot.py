@@ -1,17 +1,14 @@
-# chatbot.py
 import nltk
 nltk.download('punkt_tab')
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 import datetime
 import random
-# Download NLTK data (only needed once)
 nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
 # Print chatbot greeting
 print("🤖 NLTK Chatbot — Type 'exit' to quit\n")
-# Initialize lemmatizer
 lemmatizer = WordNetLemmatizer()
 # Sample jokes
 jokes = [
@@ -45,7 +42,6 @@ responses = {
     "weather": "I'm not connected to the internet, but I hope it's nice outside! ☀",
     "thanks": "You're welcome! 😊",
 }
-# Preprocess user input
 def preprocess_input(text):
     tokens = word_tokenize(text.lower())
     lemmatized = [lemmatizer.lemmatize(token) for token in tokens]
